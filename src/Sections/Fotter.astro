@@ -1,0 +1,221 @@
+---
+// Footer.astro
+const exploraLinks = [
+  { nombre: "Inicio", url: "#" },
+  { nombre: "Menú", url: "#menu" },
+  { nombre: "Galería", url: "#galeria" },
+  { nombre: "Eventos", url: "#eventos" }
+];
+
+const conectaLinks = [
+  { nombre: "Facebook", url: "https://www.facebook.com/elotesrieles?locale=es_LA" },
+  { nombre: "Instagram", url: "https://www.instagram.com/elotes_los_rieles/" },
+  { nombre: "WhatsApp", url: "https://wa.me/528611089151?text=Hola,%20busco%20m%C3%A1s%20informaci%C3%B3n%20para%20cotizar" }
+];
+
+---
+
+<footer class="footer-section">
+  <div class="container">
+    
+    <!-- SECCIÓN SUPERIOR CON COLUMNAS -->
+    <div class="footer-top">
+      
+      <!-- COLUMNA LOGO Y SLOGAN -->
+      <div class="brand-column">
+        <div class="logo-wrapper">
+          <img 
+            src="/logo_.avif" 
+            alt="Elotes Los Rieles Logo" 
+            class="logo-img"
+          />
+        </div>
+        <p class="slogan">
+          Un tren de sabor. <span class="emoji">🌽</span>
+        </p>
+      </div>
+
+      <!-- COLUMNA EXPLORA -->
+      <div class="nav-column">
+        <span class="column-title">EXPLORA</span>
+        <ul class="nav-list">
+          {exploraLinks.map((link) => (
+            <li>
+              <a href={link.url}>{link.nombre}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- COLUMNA CONECTA -->
+      <div class="nav-column">
+        <span class="column-title">CONECTA</span>
+        <ul class="nav-list">
+          {conectaLinks.map((link) => (
+            <li>
+              <a href={link.url}>{link.nombre}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- SECCIÓN INFERIOR CON COPYRIGHT -->
+    <div class="footer-bottom">
+      <p class="copyright">
+        © 2026 Elotes Los Rieles. Todos los derechos reservados.
+      </p>
+      <p class="credits">
+        Hecho con <span class="heart">♥</span> y mucho sabor.
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  /* --- ESTILOS BASE Y CONTENEDOR --- */
+  .footer-section {
+    background-color: #050505;
+    color: #ffffff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    padding: 4rem 1.25rem 2rem 1.25rem;
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 1px solid #171717;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* --- SECCIÓN SUPERIOR --- */
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-bottom: 3.5rem;
+  }
+
+  /* BRANDING */
+  .brand-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo-wrapper {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .slogan {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 0;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .emoji {
+    font-size: 1.2rem;
+  }
+
+  /* COLUMNAS DE NAVEGACIÓN */
+  .nav-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .column-title {
+    color: #facc15;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    display: block;
+  }
+
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .nav-list a {
+    color: #a1a1aa;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .nav-list a:hover {
+    color: #ffffff;
+  }
+
+  /* --- SECCIÓN INFERIOR --- */
+  .footer-bottom {
+    padding-top: 1.75rem;
+    border-top: 1px solid #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+    font-size: 0.8rem;
+    color: #71717a;
+  }
+
+  .copyright, .credits {
+    margin: 0;
+  }
+
+  .heart {
+    color: #ef4444;
+  }
+
+  /* --- ADAPTACIÓN A ESCRITORIO --- */
+  @media (min-width: 768px) {
+    .footer-top {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .brand-column {
+      max-width: 300px;
+    }
+
+    .nav-column {
+      min-width: 140px;
+    }
+
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+</style>

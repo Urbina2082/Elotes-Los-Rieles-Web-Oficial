@@ -1,0 +1,362 @@
+---
+// Ubicacion.astro
+const itemsMarquee = [
+  "ANTOJO",
+  "TRADICIÓN",
+  "SABOR",
+  "COMUNIDAD",
+  "ANTOJO",
+  "TRADICIÓN",
+  "SABOR",
+  "COMUNIDAD",
+];
+---
+
+<section class="ubicacion-section" id="ubicacion">
+  <!-- CINTA AMARILLA CON TEXTO EN MOVIMIENTO (MARQUEE) -->
+  <div class="marquee-bar">
+    <div class="marquee-content">
+      {itemsMarquee.concat(itemsMarquee).map((texto) => (
+        <span class="marquee-item">
+          <span class="dot">•</span>
+          <span>{texto}</span>
+        </span>
+      ))}
+    </div>
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="container">
+    <!-- ENCABEZADO -->
+    <div class="header">
+      <span class="subtitle">VEN A VISITARNOS</span>
+      <h2 class="title">¿Dónde nos encuentras?</h2>
+      <p class="description">
+        Pasa por tu antojo favorito y disfruta el sabor de Los Rieles.
+      </p>
+    </div>
+
+    <!-- TARJETA PRINCIPAL -->
+    <div class="card">
+      <!-- INFORMACIÓN (UBICACIÓN Y HORARIOS) -->
+      <div class="card-info">
+        
+        <!-- BLOQUE UBICACIÓN -->
+        <div class="info-block">
+          <div class="icon-box icon-yellow">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <span class="label">UBICACIÓN</span>
+          <h3 class="info-title">Los Rieles — Elotes</h3>
+          <p class="info-text">
+            <span class="dot-status yellow-dot"></span>
+            Rivapalacio 26760, El Consuelo, 26760 Sabinas, Coah.
+          </p>
+          <a href="https://maps.app.goo.gl/ZgebfaNLKMpLd61y8" class="link-btn">
+            Cómo llegar <span>→</span>
+          </a>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- BLOQUE HORARIOS -->
+        <div class="info-block">
+          <div class="icon-box icon-red">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <span class="label">HORARIOS</span>
+          <h3 class="info-title">Lunes — Domingo</h3>
+          <p class="info-text">
+            <span class="dot-status green-dot"></span>
+            4:30pm — 10:30pm
+          </p>
+          <h3 class="info-title">Viernes, Sabado Y Domingo</h3>
+          <p class="info-text">
+            <span class="dot-status green-dot"></span>
+            4:30pm — 11:00pm
+          </p>
+          <span class="subtext">Los Elotes mas ricos de Sabinas</span>
+        </div>
+
+      </div>
+
+      <!-- IMAGEN DERECHA -->
+      <div class="card-image-container">
+        <img 
+          src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=1000&auto=format&fit=crop" 
+          alt="Comida de Los Rieles" 
+          class="card-image"
+        />
+        <div class="image-overlay">
+          <span>Tu próximo antojo está por aquí</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* --- ESTILOS GENERALES Y RESETEO --- */
+  .ubicacion-section {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 3rem;
+  }
+
+  .container {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 0 1.25rem;
+  }
+
+  /* --- CINTA MARQUEE AMARILLA --- */
+  .marquee-bar {
+    background-color: #facc15;
+    padding: 0.6rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(234, 179, 8, 0.2);
+  }
+
+  .marquee-content {
+    display: inline-flex;
+    gap: 1.5rem;
+    animation: marquee 18s linear infinite;
+  }
+
+  .marquee-content:hover {
+    animation-play-state: paused;
+  }
+
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    color: #000000;
+    font-weight: 800;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .dot {
+    font-size: 0.9rem;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* --- ENCABEZADOS --- */
+  .header {
+    margin-bottom: 2.5rem;
+  }
+
+  .subtitle {
+    color: #facc15;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .title {
+    font-size: 2.25rem;
+    font-weight: 900;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: -0.02em;
+  }
+
+  .description {
+    color: #a3a3a3;
+    font-size: 0.95rem;
+    margin: 0;
+    max-width: 500px;
+  }
+
+  /* --- TARJETA CONTENEDORA --- */
+  .card {
+    background-color: #141414;
+    border: 1px solid #262626;
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  }
+
+  .card-info {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex: 1;
+  }
+
+  .info-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* --- ICONOS Y TEXTOS --- */
+  .icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .icon-yellow {
+    background-color: rgba(250, 204, 21, 0.1);
+    border: 1px solid rgba(250, 204, 21, 0.2);
+    color: #facc15;
+  }
+
+  .icon-red {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+  }
+
+  .label {
+    color: #737373;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+
+  .info-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .info-text {
+    color: #a3a3a3;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .subtext {
+    color: #525252;
+    font-size: 0.75rem;
+  }
+
+  .dot-status {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .yellow-dot {
+    background-color: #facc15;
+  }
+
+  .green-dot {
+    background-color: #10b981;
+  }
+
+  .link-btn {
+    color: #facc15;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 0.5rem;
+  }
+
+  .link-btn:hover {
+    text-decoration: underline;
+  }
+
+  .divider {
+    height: 1px;
+    background-color: #262626;
+    width: 100%;
+  }
+
+  /* --- SECCIÓN DE LA IMAGEN --- */
+  .card-image-container {
+    position: relative;
+    min-height: 240px;
+    width: 100%;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .image-overlay {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    font-size: 0.75rem;
+    color: #ffffff;
+    font-weight: 500;
+  }
+
+  /* --- ADAPTACIÓN A ESCRITORIO (RESPONSIVE) --- */
+  @media (min-width: 768px) {
+    .title {
+      font-size: 3rem;
+    }
+
+    .card {
+      flex-direction: row;
+    }
+
+    .card-info {
+      flex-direction: row;
+      padding: 2.5rem;
+      width: 65%;
+    }
+
+    .info-block {
+      flex: 1;
+    }
+
+    .divider {
+      width: 1px;
+      height: 100%;
+    }
+
+    .card-image-container {
+      width: 35%;
+      min-height: 100%;
+    }
+  }
+</style>

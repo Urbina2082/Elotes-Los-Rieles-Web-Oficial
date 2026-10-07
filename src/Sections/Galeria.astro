@@ -1,0 +1,225 @@
+---
+// Galeria.astro
+const platillos = [
+  {
+    titulo: "Elote preparado",
+    imagen: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=800&auto=format&fit=crop",
+    clase: "item-elote"
+  },
+  {
+    titulo: "Esquite especial",
+    imagen: "https://images.unsplash.com/photo-1541544741938-0af808871cc0?q=80&w=800&auto=format&fit=crop",
+    clase: "item-esquite"
+  },
+  {
+    titulo: "Rusa grande",
+    imagen: "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=800&auto=format&fit=crop",
+    clase: "item-rusa"
+  },
+  {
+    titulo: "Fritos con elote",
+    imagen: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=800&auto=format&fit=crop",
+    clase: "item-fritos"
+  },
+  {
+    titulo: "Smoty de chamoy",
+    imagen: "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?q=80&w=800&auto=format&fit=crop",
+    clase: "item-smoty"
+  },
+  {
+    titulo: "Nachos con queso",
+    imagen: "https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?q=80&w=800&auto=format&fit=crop",
+    clase: "item-nachos"
+  }
+];
+---
+
+<section class="galeria-section">
+  <div class="container">
+    <!-- ENCABEZADO -->
+    <div class="header">
+      <span class="subtitle">PARA ABRIR EL APETITO</span>
+      <h2 class="title">Se antoja con solo verlo.</h2>
+      <p class="description">
+        Conoce algunos de los favoritos de Los Rieles.
+      </p>
+    </div>
+
+    <!-- BENTO GRID DE GALERÍA -->
+    <div class="bento-grid">
+      {platillos.map((item) => (
+        <div class={`bento-item ${item.clase}`}>
+          <img src={item.imagen} alt={item.titulo} class="bento-img" />
+          <div class="overlay">
+            <span class="item-title">{item.titulo}</span>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* --- ESTILOS BASE Y CONTENEDOR --- */
+  .galeria-section {
+    background-color: #050505;
+    color: #ffffff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    padding: 4rem 1.25rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* --- ENCABEZADO --- */
+  .header {
+    margin-bottom: 2.5rem;
+  }
+
+  .subtitle {
+    color: #facc15;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: -0.03em;
+  }
+
+  .description {
+    color: #888888;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  /* --- GRID MÓVIL (1 o 2 columnas por defecto) --- */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* TARJETA INDIVIDUAL */
+  .bento-item {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: #121212;
+    min-height: 180px;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .bento-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .bento-item:hover .bento-img {
+    transform: scale(1.05);
+  }
+
+  /* SOMBRA INF. Y TEXTO */
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  .item-title {
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .arrow {
+    color: #facc15;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: transform 0.2s ease;
+  }
+
+  .bento-item:hover .arrow {
+    transform: translateX(3px);
+  }
+
+  /* --- ADAPTACIÓN A MÓVILES PEQUEÑOS (< 500px) --- */
+  @media (max-width: 500px) {
+    .bento-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .bento-item {
+      min-height: 220px;
+    }
+
+    .title {
+      font-size: 2rem;
+    }
+  }
+
+  /* --- DISPOSICIÓN ASIMÉTRICA EN ESCRITORIO (>= 900px) --- */
+  @media (min-width: 900px) {
+    .title {
+      font-size: 3.25rem;
+    }
+
+    .bento-grid {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(2, 230px);
+      gap: 1.25rem;
+    }
+
+    /* Posicionamiento exacto estilo Bento */
+    .item-elote {
+      grid-column: span 3;
+      grid-row: span 2;
+    }
+
+    .item-esquite {
+      grid-column: span 6;
+      grid-row: span 1;
+    }
+
+    .item-fritos {
+      grid-column: span 3;
+      grid-row: span 1;
+    }
+
+    .item-rusa {
+      grid-column: span 3;
+      grid-row: span 1;
+    }
+
+    .item-smoty {
+      grid-column: span 3;
+      grid-row: span 1;
+    }
+
+    .item-nachos {
+      grid-column: span 3;
+      grid-row: span 1;
+    }
+  }
+</style>
