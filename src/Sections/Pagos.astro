@@ -9,8 +9,9 @@ const datosPago = {
 
 <section class="pago-section" id="pago-transferencia">
   <div class="container">
+    <img src="/tarjeta.avif" alt="">
     <!-- ENCABEZADO Y BANNER AMARILLO -->
-    <div class="header">
+    <!-- <div class="header">
       <span class="subtitle">MÉTODOS DE PAGO</span>
       <h2 class="title">Aceptamos Transferencias</h2>
 
@@ -19,12 +20,12 @@ const datosPago = {
           >YA PUEDES REALIZAR TU PAGO POR TRANSFERENCIA</span
         >
       </div>
-    </div>
+    </div> -->
 
     <!-- TARJETA BANCARIA ESTILO SANTANDER -->
-    <div class="card-wrapper">
+    <!-- <div class="card-wrapper">
       <div class="credit-card">
-        <!-- LOGO Y CONTACTLESS -->
+      
         <div class="card-top">
           <div class="bank-brand">
             <span class="bank-name">{datosPago.banco}</span>
@@ -38,10 +39,10 @@ const datosPago = {
 
         <div class="card-type-badge">
           <span>TARJETA</span>
-        </div>
+        </div> -->
 
-        <!-- NÚMERO DE TARJETA CON BOTÓN COPIAR -->
-        <div class="card-number-box">
+       
+        <!-- <div class="card-number-box">
           <span class="card-number" id="num-tarjeta">{datosPago.tarjeta}</span>
           <button
             class="copy-btn"
@@ -65,15 +66,14 @@ const datosPago = {
             </svg>
             <span id="copiar-texto">Copiar</span>
           </button>
-        </div>
+        </div> -->
 
-        <!-- NOMBRE DEL TITULAR -->
-        <div class="card-holder-box">
+       
+        <!-- <div class="card-holder-box">
           <span class="holder-label">A NOMBRE DE:</span>
           <span class="holder-name">{datosPago.titular}</span>
-        </div>
-      </div>
-    </div>
+        </div> -->
+      
   </div>
 </section>
 
@@ -102,6 +102,17 @@ const datosPago = {
 </script>
 
 <style>
+
+img{
+  
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+
+}
+
+
+
   /* --- ESTILOS BASE --- */
   .pago-section {
     background-color: #080808;
