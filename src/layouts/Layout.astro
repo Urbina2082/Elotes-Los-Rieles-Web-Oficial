@@ -1,26 +1,47 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/logo_.avif" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Elotes Los Rieles - Sabinas Coahuila</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta
+      property="og:image"
+      content="https://eloteslosrieles.netlify.app/brand.jpg"
+    />
+
+    <meta
+      name="description"
+      content="Elotes Los Rieles en Sabinas, Coahuila. Disfruta deliciosos elotes, esquites, rusas, yukis, limonadas, mangonadas, nieves, paletas y troles. ¡Un tren de sabor!"
+    />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q56FHLTGZL"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-Q56FHLTGZL");
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/logo_.avif" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Elotes Los Rieles - Sabinas Coahuila</title>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		padding: 0;
-		width: 100%;
-		height: 100%;
-		font-family: system-ui, sans-serif;
-		scroll-behavior: smooth;
-	}
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
 </style>
